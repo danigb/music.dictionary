@@ -1,0 +1,44 @@
+{
+  "name": "tonal.dictionary",
+  "version": "0.0.0",
+  "private": "true",
+  "description": "The javascript music notation",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run docs && npm run dist && npm run disc && npm run coverage",
+    "test": "vows --spec test/*.js",
+    "docs": "documentation -f md > API.md",
+    "dist": "browserify lib/index.js | uglifyjs > dist/tonal.dictionary.min.js&& ls -hall dist/",
+    "disc": "browserify --full-paths lib/index.js | uglifyjs | discify > dist/disc.html",
+    "coverage": "istanbul cover vows test/*.js",
+    "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
+    "climate": "npm run coverage && npm run codeclimate",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN= codeclimate-test-reporter < coverage/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danigb/tonal.dictionary.git"
+  },
+  "keywords": [
+    "music",
+    "notation",
+    "parser",
+    "tonal"
+  ],
+  "author": "danigb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danigb/tonal.dictionary/issues"
+  },
+  "homepage": "https://github.com/danigb/tonal.dictionary#readme",
+  "devDependencies": {
+    "vows": "^0.8.x"
+  },
+  "dependencies": {
+    "tonal.gamut": "file:../gamut/lib",
+    "tonal.notation": "file:../notation/lib",
+    "tonal.pitch": "file:../pitch/lib",
+    "tonal.set": "file:../set/lib",
+    "tonal.transpose": "file:../transpose"
+  }
+}
