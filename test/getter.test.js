@@ -25,6 +25,10 @@ vows.describe('dictionary.getter').addBatch({
     assert.deepEqual(chords('Eb3M7'), [ 'Eb3', 'G3', 'Bb3', 'D4' ])
     assert.deepEqual(chords('Eb3maj7'), [ 'Eb3', 'G3', 'Bb3', 'D4' ])
   },
+  'get intervals': function () {
+    assert.deepEqual(chords('Maj7', false), [ '1P', '3M', '5P', '7M' ])
+    assert.deepEqual(chords('CMaj7', false), [ '1P', '3M', '5P', '7M' ])
+  },
   'without tonic': function () {
     assert.deepEqual(chords('Maj7')('G'), [ 'G', 'B', 'D', 'F#' ])
   }
