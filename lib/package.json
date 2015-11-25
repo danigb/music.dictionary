@@ -1,11 +1,10 @@
 {
   "name": "tonal.dictionary",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": "true",
-  "description": "Pitch sets dictionaries",
+  "description": "Music notes dictionaries",
   "main": "index.js",
   "scripts": {
-    "prepublish": "cp ../README.md ."
   },
   "repository": {
     "type": "git",
@@ -14,6 +13,7 @@
   "keywords": [
     "music",
     "dictionary",
+    "notes",
     "set",
     "tonal"
   ],
@@ -24,10 +24,9 @@
   },
   "homepage": "https://github.com/danigb/tonal.dictionary#readme",
   "dependencies": {
-    "tonal.gamut": "file:../../gamut/lib",
-    "tonal.notation": "file:../../notation/lib",
-    "tonal.pitch": "file:../../pitch/lib",
-    "tonal.set": "file:../../set/lib",
-    "tonal.transpose": "file:../../transpose"
+    "tonal.gamut": "0.0.x",
+    "tonal.notation": "0.0.x",
+    "tonal.set": "0.0.x",
+    "tonal.transpose": "0.0.x"
   }
 }

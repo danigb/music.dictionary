@@ -35,10 +35,9 @@
     "vows": "^0.8.x"
   },
   "dependencies": {
-    "tonal.gamut": "file:../gamut/lib",
-    "tonal.notation": "file:../notation/lib",
-    "tonal.pitch": "file:../pitch/lib",
-    "tonal.set": "file:../set/lib",
-    "tonal.transpose": "file:../transpose"
+    "tonal.gamut": "0.0.x",
+    "tonal.notation": "0.0.x",
+    "tonal.set": "0.0.x",
+    "tonal.transpose": "0.0.x"
   }
 }
