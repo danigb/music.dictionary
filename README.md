@@ -17,11 +17,11 @@ chords('CMaj7') // => ['C', 'E', 'G', 'B']
 chords('BbM7') // => ['Bb', 'D', 'F', 'A']
 ```
 
-This is part of [tonal]() and the foundation of the [tonal.scale] and [tonal.chord] dictionaries.
+This is part of [tonal](https://www.npmjs.com/package/tonal) and the foundation of the [tonal.scale](https://github.com/danigb/tonal.scale) and [tonal.chord](https://github.com/danigb/tonal.chord) dictionaries.
 
 ## Install
 
-Only via npm: `npm i --save tonal.dictionary`
+Via npm only: `npm i --save tonal.dictionary`
 
 ## Usage
 
@@ -82,7 +82,7 @@ names(true) // => ['Maj7', 'maj7', 'M7']
 
 #### More...
 
-Read the [generated documentation]() or get the [whole stuff]()
+Read the [generated documentation](https://github.com/danigb/tonal.dictionary/blob/master/API.md) or take a look at [tonal](https://www.npmjs.com/package/tonal)
 
 ## License
 

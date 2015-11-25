@@ -1,31 +1,11 @@
 ## `dictionary`
 
-Dictionary is a module to work with dictionaries of pitch collections
+Create a dictionary from a source.
 
-Its the foundation of the scale and chord dictionary of music.kit
-
-Currently `dictionary` module has the following functions:
-
-- dictionary: create dictionaries
-- getter: create a getter function for a dictionary
-- names: create a reverse lookup function for a dictionary
-- splitName: split a set name into type and tonic
-
-
-
-
-
-
-## `dictionary.dictionary`
-
-Create a dictionary
-
-The src is a hash map of keys associated to arrays. The array contains:
+The source is a hash map of keys associated to arrays. The array contains:
 
 - A interval list (as string or as array)
 - (Optionally) an array of name aliases
-
-This function is exported in music.kit as ´dictionary´  (see example)
 
 ### Parameters
 
@@ -35,7 +15,7 @@ This function is exported in music.kit as ´dictionary´  (see example)
 ### Examples
 
 ```js
-var dictionary = require('music.dictionary/dictionary')
+var dictionary = require('tonal.dictionary')
 var chords = dictionary({'Maj7': ['1 3 5 7', ['maj7', 'M7']]})
 
 // get chord by name
@@ -47,11 +27,6 @@ chords('Maj7') === chords('maj7') === chords('M7')
 
 // get chord by binary numbers
 chords('100010010001') === chords(22193) === chords('Maj7')
-```
-```js
-var kit = require('music.kit')
-// this function is exported as `dictionary` not `dictionary.dictionary`
-kit.dictionary(...)
 ```
 
 Returns `Hash` the dictionary
@@ -69,8 +44,8 @@ Given a dictionary return a function to get the notes or intervals from it
 ### Examples
 
 ```js
-var d = dictionary({'Maj7': ['1 3 5 7'], 'm7': ['1 3b 5 7b'] })
-var get = getter(d)
+var getter = require('tonal.dictionary/getter')
+var get = getter({'Maj7': ['1 3 5 7'], 'm7': ['1 3b 5 7b'] })
 get('CMaj7') // => ['C', 'E', 'G', 'B']
 ```
 
