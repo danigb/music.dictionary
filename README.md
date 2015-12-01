@@ -17,7 +17,7 @@ chords('CMaj7') // => ['C', 'E', 'G', 'B']
 chords('BbM7') // => ['Bb', 'D', 'F', 'A']
 ```
 
-This is part of [tonal](https://www.npmjs.com/package/tonal) and the foundation of the [tonal.scale](https://github.com/danigb/tonal.scale) and [tonal.chord](https://github.com/danigb/tonal.chord) dictionaries.
+This is part of [tonal](https://www.npmjs.com/package/tonal) and the foundation of the [tonal.scale](https://github.com/danigb/tonal.scale) and [chord.dictionary](https://github.com/danigb/chord.dictionary) dictionaries.
 
 ## Install
 

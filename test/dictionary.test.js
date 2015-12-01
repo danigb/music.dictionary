@@ -8,6 +8,7 @@ vows.describe('dictionary.dictionary').addBatch({
     assert.deepEqual(chords('Maj7'), {
       name: 'Maj7',
       intervals: [ '1', '3', '5', '7' ],
+      steps: [ [ 0, 0 ], [ 4, -2 ], [ 1, 0 ], [ 5, -2 ] ],
       aliases: [ 'maj7', 'M7' ],
       binary: '100010010001',
       decimal: 2193

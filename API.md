@@ -1,15 +1,31 @@
 ## `dictionary`
 
-Create a dictionary from a source.
+Create a dictionary from a hash of names to intervals.
 
-The source is a hash map of keys associated to arrays. The array contains:
+The dictionary if a function that returns a data object from a given name.
+The returned data object has the following properties:
+
+- name: the name
+- aliases: an array with the alternative names
+- intervals: an array with the intervals
+- steps: an array with the intervals in __array notation__
+- binary: a binary representation of the set
+- decimal: the decimal representation of the set
+
+The dictionary itself has a `names` property with an array of available
+names, and `aliases` property with an array of all names and aliases.
+
+The data source is a hash map of keys associated to intervals list, and optionally
+an array of alternatives names:
 
 - A interval list (as string or as array)
 - (Optionally) an array of name aliases
 
+See [chord.dictionary](https://github.com/danigb/chord.dictionary)
+
 ### Parameters
 
-* `src` **`Hash`** the dictionary src
+* `src` **`Hash`** the data source
 
 
 ### Examples
@@ -27,9 +43,12 @@ chords('Maj7') === chords('maj7') === chords('M7')
 
 // get chord by binary numbers
 chords('100010010001') === chords(22193) === chords('Maj7')
+
+// get chord names
+chords.names // => ['Maj7']
 ```
 
-Returns `Hash` the dictionary
+Returns `Function` the dictionary
 
 
 ## `dictionary.getter`

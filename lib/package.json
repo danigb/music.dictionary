@@ -1,8 +1,7 @@
 {
   "name": "tonal.dictionary",
-  "version": "0.0.3",
-  "private": "true",
-  "description": "Music notes dictionaries",
+  "version": "0.0.4",
+  "description": "Music dictionaries",
   "main": "index.js",
   "scripts": {
   },
@@ -26,7 +25,6 @@
   "dependencies": {
     "tonal.gamut": "0.0.x",
     "tonal.notation": "0.0.x",
-    "tonal.set": "0.0.x",
     "tonal.transpose": "0.0.x"
   }
 }
