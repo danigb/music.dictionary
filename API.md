@@ -30,7 +30,7 @@ Each value of the data hash have the following properties:
 ### Examples
 
 ```js
-var dictionary = require('tonal.dictionary')
+var dictionary = require('music.dictionary')
 var chords = dictionary({'Maj7': ['1 3 5 7', ['M7']], 'm7': ['1 3b 5 7b'] })
 chords('CMaj7') // => ['C', 'E', 'G', 'B']
 chords('DM7') // => ['D', 'F#', 'A', 'C#']

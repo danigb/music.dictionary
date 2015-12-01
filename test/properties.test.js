@@ -2,7 +2,7 @@ var vows = require('vows')
 var assert = require('assert')
 var dictionary = require('..')
 
-vows.describe('tonal.dictionary properties').addBatch({
+vows.describe('music.dictionary properties').addBatch({
   'no aliases': function () {
     var d = dictionary({'m': ['1 3b 5'], 'M': ['1 3 5']})
     assert.deepEqual(d.names, ['m', 'M'])

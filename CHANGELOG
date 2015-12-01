@@ -1,6 +1,6 @@
 CHANGELOG
 
-[0.0.5] One file only: remove names and getter
+[0.0.5] Rename to music.dictionary. Remove detection code. (6.4kb / 5.1kb)
 [0.0.4] Remove set dependency on dictionary build
 [0.0.3] Update dependencies (10K)
 [0.0.2] Get intervals with false as tonic (10K)

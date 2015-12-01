@@ -1,23 +1,22 @@
 {
-  "name": "tonal.dictionary",
+  "name": "music.dictionary",
   "version": "0.0.5",
-  "private": "true",
   "description": "Create musical dictionaries",
   "main": "index.js",
   "scripts": {
     "build": "npm run docs && npm run disc && npm run coverage && npm run dist",
     "test": "vows --spec test/*.js",
     "docs": "documentation -f md > API.md",
-    "dist": "browserify index.js | uglifyjs > dist/tonal.dictionary.min.js&& ls -hall dist/",
+    "dist": "browserify index.js | uglifyjs > dist/music.dictionary.min.js&& ls -hall dist/",
     "disc": "browserify --full-paths index.js | uglifyjs | discify > dist/disc.html",
     "coverage": "istanbul cover vows test/*.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
     "climate": "npm run coverage && npm run codeclimate",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN= codeclimate-test-reporter < coverage/lcov.info"
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=c96ab3f33842c60df69058071c4f016cb69705d6e510d55b7951be893603f90a codeclimate-test-reporter < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danigb/tonal.dictionary.git"
+    "url": "git+https://github.com/danigb/music.dictionary.git"
   },
   "keywords": [
     "music",
@@ -27,9 +26,9 @@
   "author": "danigb",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danigb/tonal.dictionary/issues"
+    "url": "https://github.com/danigb/music.dictionary/issues"
   },
-  "homepage": "https://github.com/danigb/tonal.dictionary#readme",
+  "homepage": "https://github.com/danigb/music.dictionary#readme",
   "devDependencies": {
     "vows": "^0.8.x"
   },

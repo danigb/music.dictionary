@@ -2,7 +2,7 @@ var vows = require('vows')
 var assert = require('assert')
 var dictionary = require('..')
 
-vows.describe('tonal.dictionary').addBatch({
+vows.describe('music.dictionary').addBatch({
   'basic dictionary': {
     'topic': function () {
       return dictionary({'Maj7': ['1 3 5 7', ['maj7', 'M7']]})
