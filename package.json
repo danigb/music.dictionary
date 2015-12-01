@@ -1,15 +1,15 @@
 {
-  "name": "tonal.dictionary-tools",
-  "version": "0.0.0",
+  "name": "tonal.dictionary",
+  "version": "0.0.5",
   "private": "true",
-  "description": "tonal.dictionary support",
-  "main": "lib/index.js",
+  "description": "Create musical dictionaries",
+  "main": "index.js",
   "scripts": {
-    "build": "cp README.md lib/ && npm run docs && npm run disc && npm run coverage && npm run dist",
+    "build": "npm run docs && npm run disc && npm run coverage && npm run dist",
     "test": "vows --spec test/*.js",
     "docs": "documentation -f md > API.md",
-    "dist": "browserify lib/index.js | uglifyjs > dist/tonal.dictionary.min.js&& ls -hall dist/",
-    "disc": "browserify --full-paths lib/index.js | uglifyjs | discify > dist/disc.html",
+    "dist": "browserify index.js | uglifyjs > dist/tonal.dictionary.min.js&& ls -hall dist/",
+    "disc": "browserify --full-paths index.js | uglifyjs | discify > dist/disc.html",
     "coverage": "istanbul cover vows test/*.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
     "climate": "npm run coverage && npm run codeclimate",
@@ -21,8 +21,7 @@
   },
   "keywords": [
     "music",
-    "notation",
-    "parser",
+    "dictionaries",
     "tonal"
   ],
   "author": "danigb",
@@ -35,9 +34,7 @@
     "vows": "^0.8.x"
   },
   "dependencies": {
-    "tonal.gamut": "0.0.x",
     "tonal.notation": "0.0.x",
-    "tonal.set": "0.0.x",
     "tonal.transpose": "0.0.x"
   }
 }

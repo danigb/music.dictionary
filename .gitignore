@@ -6,3 +6,4 @@ tmp/
 docs/
 .DS_Store
 dist
+deprecated/

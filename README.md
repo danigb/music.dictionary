@@ -8,11 +8,11 @@
 [![tonal](https://img.shields.io/badge/lib-tonal-yellow.svg)](https://www.npmjs.com/package/tonal)
 
 
-`tonal.dictionary` is a collection of functions to create and manipulate tonal dictionaries. A tonal dictionary is a collection of notes with a name:
+`tonal.dictionary` is a function to create musical dictionaries. A muscal dictionary is a collection of notes with a name:
 
 ```js
 var dictionary = require('tonal.dictionary')
-var chords = dictionary.getter({'Maj7': ['1 3 5 7', ['maj7', 'M7']]})
+var chords = dictionary({'Maj7': ['1 3 5 7', ['maj7', 'M7']]})
 chords('CMaj7') // => ['C', 'E', 'G', 'B']
 chords('BbM7') // => ['Bb', 'D', 'F', 'A']
 ```
@@ -25,59 +25,60 @@ Via npm only: `npm i --save tonal.dictionary`
 
 ## Usage
 
-#### Create a dictionary
+The function returned by `tonal.dictionary` creates list of notes (or intervals) from a name. The name may include a root:
 
-The `dictionary` function creates a function that returns interval collection that can be accessed by name, name aliases, binary set number and decimal set number.
+```js
+var chords = dictionary.getter({'Maj7', ['1 3 5 7', ['maj7', 'M7']], 'm7': ['1 3b 7 7b']})
+chords('CMaj7') // => ['C', 'E', 'G', 'B']
+chords('Maj7', 'C') // => ['C', 'E', 'G', 'B']
+chords('Fm7') // => ['F', 'Ab', 'C', 'Eb']
+```
 
+Without root, a list of intervals is returned:
+
+```js
+chords('Maj7') // => ['1P', '3M', '5P', '7M']
+```
+
+__It never returns null__. If no name is found, an empty array is returned:
+
+```js
+chords('Cdim') // => []
+chords(null) // => []
+chords() // => []
+```
+
+#### Dictionary data
+
+The `data` property of the dictionary is a hashmap of names mapped to data objects. The data objects has the following properties:
+
+- name: the name
+- aliases: an array with the alternative names
+- intervals: an array with the intervals
+- steps: an array with the intervals in __array notation__
+- binary: a binary representation of the set
+- decimal: the decimal representation of the set
 
 ```js
 var chords = dictionary({'Maj7', ['1 3 5 7', ['maj7', 'M7']]})
-// get chord by name
-chords('Maj7') // => { name: 'Maj7', aliases: ['maj7', 'M7'],
-               //      intervals: ['1', '3', '5', '7'] }
-
-// get chord by aliases
-chords('Maj7') === chords('maj7') === chords('M7')
+// dictionary data
+chords.data['M7'] // => { name: 'Maj7', aliases: ['M7'],
+                  //      intervals: ['1', '3', '5', '7'], steps: [ ...],
+                  //      binary: '10010010001', decimal: 2193 }
 
 // get chord by binary numbers
-chords('100010010001') === chords(2193) === chords('Maj7')
+chords.data['100010010001'] === chords.data['Maj7']
+chords.data[2193] === chords.data['Maj7']
 ```
 
-#### Create a getter
+#### Get available names
 
-The more convenient function is `dictionary.getter` that returns a function that accepts a tonic:
-
-```js
-var chords = dictionary.getter({'Maj7', ['1 3 5 7', ['maj7', 'M7']]})
-chords('CMaj7') // => ['C', 'E', 'G', 'B']
-chords('Maj7', 'C') // => ['C', 'E', 'G', 'B']
-```
-
-#### Reverse lookup
-
-The `dictionary.names` function returns a function that, given a collection of notes, return the name:
+The property `names` is an array with the available names. The property `aliases` adds the aliases names:
 
 ```js
-var names = dictionary.names({'Maj7', ['1 3 5 7', ['maj7', 'M7']]})
-names('Eb G Bb D') // => ['EbMaj7', 'Ebmaj7', 'EbM7']
-```
-
-The first name is always the principal name and the rest is the aliases.
-
-#### Get dictionary keys
-
-The function returned by `dictionary.names` returns the available names if invoked without arguments (or false as argument):
-
-```js
-var names = dictionary.names({'Maj7', ['1 3 5 7', ['maj7', 'M7']]})
-names() // => ['Maj7']
-names(false) // => ['Maj7']
-```
-
-If `true` is passed, the names and the aliases are returned:
-
-```js
-names(true) // => ['Maj7', 'maj7', 'M7']
+var chords = dictionary({'Maj7', ['1 3 5 7', ['maj7', 'M7']], 'm': ['1 3b 5']})
+chords.names // => ['Maj7', 'm']
+chords.aliases // => ['Maj7', 'm', 'maj7', 'M7']
 ```
 
 #### More...
